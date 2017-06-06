@@ -1,0 +1,13 @@
+{
+  "name": "random-wiki-batch",
+  "version": "0.0.1",
+  "description": "Get a random batch of wikipedia articles using the WikiMedia API",
+  "main": "index.js",
+  "author": "reblws",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^7.0.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
