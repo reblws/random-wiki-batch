@@ -6,8 +6,6 @@
   "author": "reblws",
   "license": "MIT",
   "dependencies": {
-    "got": "^7.0.0",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1"
+    "got": "^7.0.0"
   }
 }
