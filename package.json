@@ -6,6 +6,10 @@
   "author": "reblws",
   "license": "MIT",
   "homepage": "https://github.com/reblws/random-wiki-batch",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reblws/random-wiki-batch.git"
+  },
   "keywords": [
     "wikipedia",
     "random",
