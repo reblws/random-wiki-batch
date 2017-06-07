@@ -1,7 +1,7 @@
 
 # random-wiki-batch
 
-Get a specified number of random wiki articles. Returns a Promise consisting of an array of random articles from Wikipedia using the [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page) with their titles, pageid, and content.
+Get a specified number of random Wikipedia articles. Returns a Promise consisting of an array of random articles from Wikipedia using the [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page) with their titles, pageid, and content.
 
 The content appears under the `revisions` key of an article as raw wikitext. Check out [txtwiki.js](https://github.com/joaomsa/txtwiki.js) for parsing wikitext as plaintext.
 
