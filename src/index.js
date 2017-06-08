@@ -6,17 +6,22 @@ function getRandomPagesArray(json) {
   return randomPagesArray;
 }
 
-function randomWikiBatch(numOfPagesWanted = 10) {
+function constructRequestURL(pagesWanted) {
   const WIKI_ENDPOINT = 'https://en.wikipedia.org/w/api.php?';
   const format = 'format=json';
   const action = 'action=query';
   const list = 'generator=random';
   const namespace = 'grnnamespace=0';
   const props = 'prop=revisions&rvprop=content'
-  const rnLimit = num => `grnlimit=${num}`;
-  const urlToRequest = rnLimit => (`
+  const rnLimit = `grnlimit=${pagesWanted}`;
+  const urlToRequest = (`
     ${WIKI_ENDPOINT}${format}&${action}&${list}&${rnLimit}&${namespace}&${props}
   `);
+
+  return urlToRequest;
+}
+
+function randomWikiBatch(numOfPagesWanted = 10) {
   // Can only make max of 10 requests at a time
   const requestsToMake = Math.floor(numOfPagesWanted / 10);
   const numOfPagesOnLastRequest = numOfPagesWanted % 10;
@@ -25,8 +30,7 @@ function randomWikiBatch(numOfPagesWanted = 10) {
     wikiPromises.push(numOfPagesOnLastRequest);
   }
   wikiPromises = wikiPromises.map(pagesToRequest => {
-    const numOfArticlesToRequest = rnLimit(pagesToRequest);
-    const url = urlToRequest(numOfArticlesToRequest);
+    const url = constructRequestURL(pagesToRequest);
     return Promise.resolve(got(url))
       .then(response => JSON.parse(response.body))
       .then(getRandomPagesArray);
@@ -34,5 +38,6 @@ function randomWikiBatch(numOfPagesWanted = 10) {
   return Promise.all(wikiPromises)
     .then(articleBatch => [].concat.apply([], articleBatch));
 }
+
 
 module.exports = randomWikiBatch;
