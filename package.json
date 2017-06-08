@@ -1,6 +1,6 @@
 {
   "name": "random-wiki-batch",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Get a random batch of wikipedia articles using the MediaWiki API",
   "main": "./src/index.js",
   "author": "reblws",
