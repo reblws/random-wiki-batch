@@ -20,5 +20,11 @@
   ],
   "dependencies": {
     "got": "^7.0.0"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
